@@ -59,7 +59,6 @@ Linux + VPS + Docker = 🐧
 - 🔧 I turn complex business requirements into elegant code solutions
 - 🎨 I believe beautiful UIs should be backed by robust architectures  
 - 🚢 My code has sailed the Pacific Ocean (literally - in fishing vessels!)
-- 📡 I make devices talk to each other across continents
 - 🎯 Currently working on systems that process terabytes of video data
 
 ### 🤝 Let's Connect:
