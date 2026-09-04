@@ -4,6 +4,10 @@
 
 I write software that has to keep working when nobody is watching. Edge devices aboard fishing vessels in the Pacific, video that crosses a satellite link, and the interfaces people use on shore to make sense of all of it. Most of my days move between a Python service, a React screen, and a Linux box that is very far from any keyboard.
 
+<p align="center">
+  <img src="assets/stats.svg" width="100%" alt="GitHub activity card: contributions, commits, streaks, heat map and languages, refreshed nightly">
+</p>
+
 ### Now
 
 - **Deep Signal Stream.** Real-time monitoring for maritime fleets. Sensor data over MQTT, live video over SRT, one dashboard that stays honest when the link gets thin.
