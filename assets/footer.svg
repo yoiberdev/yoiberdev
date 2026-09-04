@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="900" height="120" role="img" aria-label="Lighthouse at night">
+  <defs>
+    <clipPath id="f"><rect width="900" height="120" rx="16"/></clipPath>
+    <linearGradient id="beam" x1="0" x2="1">
+      <stop offset="0" stop-color="#F2B441" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#F2B441" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#f)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <rect width="900" height="120" fill="#0B1620"/>
+    <g fill="#E8F1F5">
+      <circle cx="140" cy="22" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="310" cy="40" r="1"><animate attributeName="opacity" values="1;0.2;1" dur="4.2s" repeatCount="indefinite"/></circle>
+      <circle cx="420" cy="18" r="1.4"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.6s" repeatCount="indefinite"/></circle>
+      <circle cx="560" cy="34" r="1"><animate attributeName="opacity" values="1;0.3;1" dur="3.8s" repeatCount="indefinite"/></circle>
+      <circle cx="690" cy="24" r="1.2"><animate attributeName="opacity" values="0.2;1;0.2" dur="5s" repeatCount="indefinite"/></circle>
+      <circle cx="830" cy="44" r="1"><animate attributeName="opacity" values="1;0.2;1" dur="3.3s" repeatCount="indefinite"/></circle>
+    </g>
+    <!-- sea -->
+    <path d="M-900 92 Q-825 84 -750 92 T-600 92 T-450 92 T-300 92 T-150 92 T0 92 T150 92 T300 92 T450 92 T600 92 T750 92 T900 92 T1050 92 T1200 92 V120 H-900 Z" fill="#0E2436">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="300 0" dur="11s" repeatCount="indefinite"/>
+    </path>
+    <!-- rock + lighthouse -->
+    <path d="M30 120 L52 96 L96 98 L112 120 Z" fill="#132A3C"/>
+    <path d="M66 96 L70 48 L86 48 L90 96 Z" fill="#1E3A4F"/>
+    <rect x="68" y="60" width="20" height="4" fill="#0B1620"/>
+    <rect x="68" y="76" width="20" height="4" fill="#0B1620"/>
+    <rect x="71" y="38" width="14" height="10" fill="#F2B441"/>
+    <path d="M69 38 L78 30 L87 38 Z" fill="#8FA7B5"/>
+    <!-- beam -->
+    <g transform="translate(78 43)">
+      <path d="M0 0 L520 -34 L520 34 Z" fill="url(#beam)">
+        <animateTransform attributeName="transform" type="rotate" values="-8;10;-8" dur="7s" repeatCount="indefinite"/>
+      </path>
+      <circle r="3" fill="#FFF1C4">
+        <animate attributeName="opacity" values="1;0.6;1" dur="1.4s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    <text x="874" y="104" font-size="11" fill="#5F7B8C" text-anchor="end" letter-spacing="1.5">SIGNAL RECEIVED</text>
+  </g>
+</svg>

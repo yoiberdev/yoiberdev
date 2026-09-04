@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="900" height="240" role="img" aria-label="Yoiber, full-stack developer: IoT and distributed systems">
+  <defs>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#132A3C" stroke-width="1"/>
+    </pattern>
+    <clipPath id="frame"><rect width="900" height="240" rx="16"/></clipPath>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#35D0E0" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#35D0E0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#frame)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace">
+    <rect width="900" height="240" fill="#0B1620"/>
+    <rect width="900" height="240" fill="url(#grid)"/>
+
+    <!-- radar -->
+    <g transform="translate(730 100)">
+      <circle r="78" fill="url(#glow)"/>
+      <circle r="72" fill="none" stroke="#1E3A4F" stroke-width="1"/>
+      <circle r="48" fill="none" stroke="#1E3A4F" stroke-width="1"/>
+      <circle r="24" fill="none" stroke="#1E3A4F" stroke-width="1"/>
+      <line x1="-72" y1="0" x2="72" y2="0" stroke="#1E3A4F"/>
+      <line x1="0" y1="-72" x2="0" y2="72" stroke="#1E3A4F"/>
+      <path d="M0 0 L72 0 A72 72 0 0 0 50.9 -50.9 Z" fill="#35D0E0" opacity="0.22">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+      </path>
+      <line x1="0" y1="0" x2="72" y2="0" stroke="#35D0E0" stroke-width="1.5">
+        <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6s" repeatCount="indefinite"/>
+      </line>
+      <circle cx="30" cy="-25" r="3.2" fill="#F2B441" opacity="0">
+        <animate attributeName="opacity" values="1;0" dur="6s" begin="5.34s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-40" cy="20" r="3.2" fill="#F2B441" opacity="0">
+        <animate attributeName="opacity" values="1;0" dur="6s" begin="2.56s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="10" cy="46" r="3.2" fill="#F2B441" opacity="0">
+        <animate attributeName="opacity" values="1;0" dur="6s" begin="1.29s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="3" fill="#35D0E0"/>
+    </g>
+
+    <!-- name -->
+    <text x="48" y="94" font-size="56" font-weight="700" fill="#E8F1F5" letter-spacing="-1.5">Yoiber</text>
+    <text x="50" y="126" font-size="16" fill="#8FA7B5">full-stack developer  ·  IoT  ·  distributed systems</text>
+
+    <!-- rotating status line -->
+    <g font-size="15">
+      <text x="50" y="172" fill="#35D0E0">$</text>
+      <g fill="#C9D8E0">
+        <text x="68" y="172" textLength="270" lengthAdjust="spacingAndGlyphs" opacity="0">monitoring vessels in the Pacific
+          <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.04;0.30;0.34;1" dur="12s" repeatCount="indefinite"/>
+        </text>
+        <text x="68" y="172" textLength="252" lengthAdjust="spacingAndGlyphs" opacity="0">encoding video at the edge
+          <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.34;0.38;0.63;0.67;1" dur="12s" repeatCount="indefinite"/>
+        </text>
+        <text x="68" y="172" textLength="243" lengthAdjust="spacingAndGlyphs" opacity="0">shipping React interfaces
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;0.67;0.71;0.96;1" dur="12s" repeatCount="indefinite"/>
+        </text>
+      </g>
+      <rect x="348" y="160" width="9" height="15" fill="#35D0E0">
+        <animate attributeName="opacity" values="1;1;0;0" dur="1.1s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- waves -->
+    <path d="M-900 202 Q-825 188 -750 202 T-600 202 T-450 202 T-300 202 T-150 202 T0 202 T150 202 T300 202 T450 202 T600 202 T750 202 T900 202 T1050 202 T1200 202 V240 H-900 Z" fill="#12314A" opacity="0.9">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="300 0" dur="9s" repeatCount="indefinite"/>
+    </path>
+    <path d="M-900 214 Q-825 200 -750 214 T-600 214 T-450 214 T-300 214 T-150 214 T0 214 T150 214 T300 214 T450 214 T600 214 T750 214 T900 214 T1050 214 T1200 214 V240 H-900 Z" fill="#0E2436">
+      <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="13s" repeatCount="indefinite"/>
+    </path>
+
+    <!-- vessel drifting on the swell -->
+    <g>
+      <animateTransform attributeName="transform" type="translate" from="60 0" to="860 0" dur="46s" repeatCount="indefinite"/>
+      <g>
+        <animateTransform attributeName="transform" type="translate" values="0 0;0 -3;0 0;0 2;0 0" dur="3.2s" repeatCount="indefinite"/>
+        <path d="M-9 200 L9 200 L5 206 L-5 206 Z" fill="#F2B441"/>
+        <rect x="-2" y="192" width="4" height="8" fill="#F2B441"/>
+        <circle cx="0" cy="190" r="2" fill="#35D0E0">
+          <animate attributeName="opacity" values="1;0.2;1" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+    </g>
+  </g>
+</svg>
