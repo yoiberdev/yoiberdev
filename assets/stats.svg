@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-label="GitHub activity of yoiberdev: 2 423 contributions in the last 12 months">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" role="img" aria-label="GitHub activity of yoiberdev: 2 455 contributions in the last 12 months">
 <defs><clipPath id="s"><rect width="900" height="300" rx="16"/></clipPath>
 <pattern id="g" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#132A3C"/></pattern></defs>
 <g clip-path="url(#s)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"><rect width="900" height="300" fill="#0B1620"/><rect width="900" height="300" fill="url(#g)"/>
 <text x="30" y="36" font-size="12" fill="#8FA7B5" letter-spacing="2">ACTIVITY · LAST 12 MONTHS</text>
-<text x="870" y="36" font-size="11" fill="#8FA7B5" text-anchor="end">updated 2026-09-06</text>
-<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.00s" fill="freeze"/><text x="30" y="90" font-size="30" font-weight="700" fill="#E8F1F5">2 423</text><text x="30" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">CONTRIBUTIONS</text></g>
-<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.15s" fill="freeze"/><text x="180" y="90" font-size="30" font-weight="700" fill="#E8F1F5">38</text><text x="180" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">PUBLIC COMMITS</text></g>
-<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.30s" fill="freeze"/><text x="330" y="90" font-size="30" font-weight="700" fill="#E8F1F5">2 373</text><text x="330" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">PRIVATE WORK</text></g>
+<text x="870" y="36" font-size="11" fill="#8FA7B5" text-anchor="end">updated 2026-09-07</text>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.00s" fill="freeze"/><text x="30" y="90" font-size="30" font-weight="700" fill="#E8F1F5">2 455</text><text x="30" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">CONTRIBUTIONS</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.15s" fill="freeze"/><text x="180" y="90" font-size="30" font-weight="700" fill="#E8F1F5">68</text><text x="180" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">PUBLIC COMMITS</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.30s" fill="freeze"/><text x="330" y="90" font-size="30" font-weight="700" fill="#E8F1F5">2 374</text><text x="330" y="108" font-size="11" fill="#8FA7B5" letter-spacing="1">PRIVATE WORK</text></g>
 <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.45s" fill="freeze"/><text x="30" y="164" font-size="30" font-weight="700" fill="#E8F1F5">3</text><text x="30" y="182" font-size="11" fill="#8FA7B5" letter-spacing="1">STARS EARNED</text></g>
-<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.60s" fill="freeze"/><text x="180" y="164" font-size="30" font-weight="700" fill="#F2B441">0d</text><text x="180" y="182" font-size="11" fill="#8FA7B5" letter-spacing="1">CURRENT STREAK</text></g>
+<g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.60s" fill="freeze"/><text x="180" y="164" font-size="30" font-weight="700" fill="#F2B441">2d</text><text x="180" y="182" font-size="11" fill="#8FA7B5" letter-spacing="1">CURRENT STREAK</text></g>
 <g opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.75s" fill="freeze"/><text x="330" y="164" font-size="30" font-weight="700" fill="#F2B441">12d</text><text x="330" y="182" font-size="11" fill="#8FA7B5" letter-spacing="1">LONGEST STREAK</text></g>
 <text x="500" y="52" font-size="11" fill="#8FA7B5" letter-spacing="1">LAST 26 WEEKS</text>
 <rect x="500" y="146" width="11" height="11" rx="2" fill="#132A3C" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.00s" fill="freeze"/></rect>
@@ -191,14 +191,15 @@
 <rect x="836" y="104" width="11" height="11" rx="2" fill="#35D0E0" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.72s" fill="freeze"/></rect>
 <rect x="836" y="118" width="11" height="11" rx="2" fill="#1E8A98" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.72s" fill="freeze"/></rect>
 <rect x="836" y="132" width="11" height="11" rx="2" fill="#132A3C" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.72s" fill="freeze"/></rect>
-<rect x="850" y="146" width="11" height="11" rx="2" fill="#132A3C" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.75s" fill="freeze"/></rect>
+<rect x="850" y="146" width="11" height="11" rx="2" fill="#1E8A98" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.75s" fill="freeze"/></rect>
+<rect x="850" y="62" width="11" height="11" rx="2" fill="#16505C" opacity="0"><animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.75s" fill="freeze"/></rect>
 <text x="850" y="172" font-size="10" fill="#8FA7B5">Sep</text>
 <text x="30" y="220" font-size="11" fill="#8FA7B5" letter-spacing="1">LANGUAGES</text>
-<text x="870" y="220" font-size="11" fill="#8FA7B5" text-anchor="end">139 repos · 6 followers</text>
-<rect x="30.0" y="232" width="0" height="10" rx="3" fill="#3572A5"><animate attributeName="width" from="0" to="334.7" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
-<rect x="366.7" y="232" width="0" height="10" rx="3" fill="#4F5D95"><animate attributeName="width" from="0" to="315.5" dur="0.9s" begin="0.10s" fill="freeze"/></rect>
-<rect x="684.2" y="232" width="0" height="10" rx="3" fill="#3178c6"><animate attributeName="width" from="0" to="97.9" dur="0.9s" begin="0.20s" fill="freeze"/></rect>
-<rect x="784.1" y="232" width="0" height="10" rx="3" fill="#f1e05a"><animate attributeName="width" from="0" to="65.3" dur="0.9s" begin="0.30s" fill="freeze"/></rect>
+<text x="870" y="220" font-size="11" fill="#8FA7B5" text-anchor="end">140 repos · 6 followers</text>
+<rect x="30.0" y="232" width="0" height="10" rx="3" fill="#3572A5"><animate attributeName="width" from="0" to="334.5" dur="0.9s" begin="0.00s" fill="freeze"/></rect>
+<rect x="366.5" y="232" width="0" height="10" rx="3" fill="#4F5D95"><animate attributeName="width" from="0" to="315.3" dur="0.9s" begin="0.10s" fill="freeze"/></rect>
+<rect x="683.8" y="232" width="0" height="10" rx="3" fill="#3178c6"><animate attributeName="width" from="0" to="98.4" dur="0.9s" begin="0.20s" fill="freeze"/></rect>
+<rect x="784.2" y="232" width="0" height="10" rx="3" fill="#f1e05a"><animate attributeName="width" from="0" to="65.3" dur="0.9s" begin="0.30s" fill="freeze"/></rect>
 <rect x="851.4" y="232" width="0" height="10" rx="3" fill="#555555"><animate attributeName="width" from="0" to="18.3" dur="0.9s" begin="0.40s" fill="freeze"/></rect>
 <rect x="871.8" y="232" width="0" height="10" rx="3" fill="#663399"><animate attributeName="width" from="0" to="8.2" dur="0.9s" begin="0.50s" fill="freeze"/></rect>
 <circle cx="35" cy="262" r="4" fill="#3572A5"/><text x="44" y="266" font-size="11" fill="#E8F1F5">Python <tspan fill="#8FA7B5">40%</tspan></text>
