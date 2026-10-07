@@ -372,18 +372,19 @@
 <rect x="784.0" y="138.0" width="12" height="12" rx="2.5" fill="#ffd166" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.60s" fill="freeze"/></rect>
 <rect x="799.2" y="153.2" width="12" height="12" rx="2.5" fill="#a8a8a2" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.61s" fill="freeze"/></rect>
 <rect x="799.2" y="62.0" width="12" height="12" rx="2.5" fill="#a8a8a2" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.61s" fill="freeze"/></rect>
-<rect x="799.2" y="77.2" width="12" height="12" rx="2.5" fill="#282725" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.61s" fill="freeze"/></rect>
+<rect x="799.2" y="77.2" width="12" height="12" rx="2.5" fill="#3d3d3a" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.61s" fill="freeze"/></rect>
+<rect x="799.2" y="92.4" width="12" height="12" rx="2.5" fill="#282725" opacity="0"><animate attributeName="opacity" to="1" dur="0.4s" begin="0.61s" fill="freeze"/></rect>
 <text x="799.2" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9.5" fill="#6a6a66">Oct</text>
 <text x="24" y="214" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#93938f" letter-spacing="1.6">LANGUAGES BY BYTES OF CODE</text>
-<rect x="24.0" y="224" width="0" height="8" rx="4" fill="#3572A5"><animate attributeName="width" to="323.2" dur="0.8s" begin="0.00s" fill="freeze"/></rect>
-<rect x="349.2" y="224" width="0" height="8" rx="4" fill="#4F5D95"><animate attributeName="width" to="284.9" dur="0.8s" begin="0.08s" fill="freeze"/></rect>
-<rect x="636.2" y="224" width="0" height="8" rx="4" fill="#3178c6"><animate attributeName="width" to="104.2" dur="0.8s" begin="0.16s" fill="freeze"/></rect>
-<rect x="742.4" y="224" width="0" height="8" rx="4" fill="#f1e05a"><animate attributeName="width" to="60.5" dur="0.8s" begin="0.24s" fill="freeze"/></rect>
-<rect x="804.9" y="224" width="0" height="8" rx="4" fill="#e34c26"><animate attributeName="width" to="52.5" dur="0.8s" begin="0.32s" fill="freeze"/></rect>
+<rect x="24.0" y="224" width="0" height="8" rx="4" fill="#3572A5"><animate attributeName="width" to="323.3" dur="0.8s" begin="0.00s" fill="freeze"/></rect>
+<rect x="349.3" y="224" width="0" height="8" rx="4" fill="#4F5D95"><animate attributeName="width" to="284.5" dur="0.8s" begin="0.08s" fill="freeze"/></rect>
+<rect x="635.7" y="224" width="0" height="8" rx="4" fill="#3178c6"><animate attributeName="width" to="104.5" dur="0.8s" begin="0.16s" fill="freeze"/></rect>
+<rect x="742.2" y="224" width="0" height="8" rx="4" fill="#f1e05a"><animate attributeName="width" to="60.4" dur="0.8s" begin="0.24s" fill="freeze"/></rect>
+<rect x="804.6" y="224" width="0" height="8" rx="4" fill="#e34c26"><animate attributeName="width" to="52.7" dur="0.8s" begin="0.32s" fill="freeze"/></rect>
 <rect x="859.3" y="224" width="0" height="8" rx="4" fill="#555555"><animate attributeName="width" to="14.7" dur="0.8s" begin="0.40s" fill="freeze"/></rect>
 <circle cx="28.0" cy="250" r="3.5" fill="#3572A5"/><text x="37.0" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">Python <tspan fill="#6a6a66">38%</tspan></text>
 <circle cx="127.0" cy="250" r="3.5" fill="#4F5D95"/><text x="136.0" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">PHP <tspan fill="#6a6a66">34%</tspan></text>
-<circle cx="205.3" cy="250" r="3.5" fill="#3178c6"/><text x="214.3" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">TypeScript <tspan fill="#6a6a66">12%</tspan></text>
+<circle cx="205.3" cy="250" r="3.5" fill="#3178c6"/><text x="214.3" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">TypeScript <tspan fill="#6a6a66">13%</tspan></text>
 <circle cx="331.90000000000003" cy="250" r="3.5" fill="#f1e05a"/><text x="340.90000000000003" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">JavaScript <tspan fill="#6a6a66">7%</tspan></text>
 <circle cx="458.50000000000006" cy="250" r="3.5" fill="#e34c26"/><text x="467.50000000000006" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">HTML <tspan fill="#6a6a66">6%</tspan></text>
 <circle cx="543.7" cy="250" r="3.5" fill="#555555"/><text x="552.7" y="254" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#f4f4f2">C <tspan fill="#6a6a66">2%</tspan></text>
