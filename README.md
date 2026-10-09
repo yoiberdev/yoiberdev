@@ -46,12 +46,10 @@ Tsuzuku is live at [anime.yoiber.dev](https://anime.yoiber.dev), with an APK for
 Both Kip-Up demos use the same made-up ceviche restaurant, and their screens are in Spanish. Code for the
 other two: [nazca](https://github.com/yoiberdev/nazca) · [ajolote](https://github.com/yoiberdev/ajolote).
 
-<table>
-  <tr>
-    <td><img src="assets/stats.svg" width="452" alt="Last 12 months: contributions, private work, commits, projects, active days and repositories"></td>
-    <td><img src="assets/streak.svg" width="424" alt="Consistency: active days in the year, current and longest streak"></td>
-  </tr>
-</table>
+<p align="center">
+  <img src="assets/stats.svg" width="50.5%" alt="Last 12 months: contributions, private work, commits, projects, active days and repositories">
+  <img src="assets/streak.svg" width="47.3%" alt="Consistency: active days in the year, current and longest streak">
+</p>
 
 <p align="center">
   <img src="assets/activity.svg" width="100%" alt="Contribution calendar for the last 52 weeks and languages by bytes of code">
