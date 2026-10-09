@@ -1,43 +1,50 @@
 <p align="center">
-  <img src="assets/header.svg" width="100%" alt="Yoiber, full-stack developer: distributed systems, field devices and live data">
+  <img src="assets/cards/hero.svg" width="100%" alt="Yoiber, full-stack developer in Lima, Peru. Systems that keep working when nobody is watching. A live log: a vessel loses its link and queues frames in SQLite, the link comes back, SUNAT accepts receipt B001-16, the office sees who is on board.">
 </p>
 
-Full-stack developer in Lima, Peru. I build systems that keep working when nobody is watching.
-Backend in Python, Node and Java, interfaces in React and TypeScript, and Linux machines a long way
-from any keyboard.
+<p align="center">
+  Backend in Python, Node and Java, interfaces in React and TypeScript, and Linux machines a long way from any keyboard.<br>
+  <a href="https://yoiber.com/en/">yoiber.com</a> · <a href="https://linkedin.com/in/yoiberdev/">LinkedIn</a> · <a href="https://yoiber.com/en/contact/">Get in touch</a>
+</p>
 
 ### Five systems, explained from the inside
 
-Each one has a page on [my site](https://yoiber.com/en/) with the problem, the decisions it forced
-and how it turned out.
+Each card opens the case on my site: the problem, the decisions it forced and how it turned out.
 
-| Case | What it is |
-|---|---|
-| [Live video from vessels that keep losing the link](https://yoiber.com/en/cases/live-video-from-vessels/) | Cameras on fishing vessels hundreds of kilometers offshore, watched from the coast over a satellite link that drops several times a day. A Python agent on the boat's industrial PC (with a second version in Go) keeps in SQLite whatever it couldn't send until the link comes back. |
-| [The receipt leaves the system and the tax office accepts it](https://yoiber.com/en/cases/kuantera/) | Peruvian electronic invoicing written from scratch, with no middleman: UBL 2.1, a digital signature, SOAP to SUNAT, and a worker that keeps retrying while the tax office is down. A Kip-Up product. |
-| [Who is on board right now](https://yoiber.com/en/cases/field-operations-at-sea/) | Technicians clock in on board with their phone's location, and the office sees who is on which vessel and since when. The man-hours come out of those records, so nobody types them in. |
-| [Twenty modules around the day's schedule](https://yoiber.com/en/cases/therapy-center-erp/) | The system a therapy center with several locations runs on every day: schedule, patients, electronic invoices, pharmacy and staff. Django on ASGI and PostgreSQL. |
-| [You define a field and the form is already there](https://yoiber.com/en/cases/kuidy-core/) | My own form engine. Modules and fields are defined from the interface, records live in one `jsonb` table, and the same validation runs in the browser and in the API. [Demo](https://kuidy-core-demo-164532276262.us-central1.run.app) · `owner@kuidy.demo` / `Demo1234!` |
+<p align="center">
+  <a href="https://yoiber.com/en/cases/live-video-from-vessels/"><img src="assets/cards/case-vessels.svg" width="100%" alt="Case: live video from vessels that keep losing the link. Cameras on fishing vessels, watched from shore over a satellite link that drops several times a day; frames wait in SQLite until it comes back."></a>
+</p>
+<p align="center">
+  <a href="https://yoiber.com/en/cases/kuantera/"><img src="assets/cards/case-sunat.svg" width="49%" alt="Case: the receipt leaves the system and the tax office accepts it. Peruvian electronic invoicing written from scratch: signed, sent to SUNAT, retried while the service is down, accepted with code 0."></a>
+  <a href="https://yoiber.com/en/cases/field-operations-at-sea/"><img src="assets/cards/case-onboard.svg" width="49%" alt="Case: who is on board right now. Technicians clock in on vessels with their location, and the office sees who is on which vessel and since when."></a>
+  <a href="https://yoiber.com/en/cases/therapy-center-erp/"><img src="assets/cards/case-schedule.svg" width="49%" alt="Case: twenty modules around the day's schedule, the system a therapy center with several locations runs on every day."></a>
+  <a href="https://yoiber.com/en/cases/kuidy-core/"><img src="assets/cards/case-kuidy-core.svg" width="49%" alt="Case: KUIDY-CORE. You define a field and the form is already there, with the same validation in the browser and in the API."></a>
+</p>
+
+KUIDY-CORE has a public demo: [open it](https://kuidy-core-demo-164532276262.us-central1.run.app) with `owner@kuidy.demo` / `Demo1234!` (it scales to zero, so give it a few seconds).
 
 ### Open source
 
-| Project | What it is |
-|---|---|
-| [DocuGraph MCP](https://github.com/yoiberdev/docugraph-mcp) | An MCP server in Rust that lets an AI agent ask a 3,000-page PDF a question and get back about 400 tokens of evidence with page numbers. 25 ms per query across 6,576 indexed pages, with no API keys and no network. |
-| [Kuidy Lyrics](https://github.com/yoiberdev/kuidy-lyrics) | Synced lyrics floating over any Windows window, games in borderless fullscreen included. Rewritten in Rust without Electron: 20 MB instead of 392 MB, one process instead of five. |
-| [Tsuzuku](https://github.com/yoiberdev/tsuzuku) | Anime tracker for the web and Android on the AniList API: your list episode by episode, the week's airing schedule in your time zone, where to watch legally and new-episode alerts. [Live](https://anime.yoiber.dev) |
-| [km 0](https://github.com/yoiberdev/km0) | Android activity recorder in the spirit of Strava. If you hit start halfway through a walk, it rebuilds the missing stretch from Health Connect and snaps it to the streets. Kotlin plugins inside Capacitor. |
+<p align="center">
+  <a href="https://github.com/yoiberdev/docugraph-mcp"><img src="assets/cards/oss-docugraph.svg" width="49%" alt="DocuGraph MCP: an MCP server in Rust. Ask a 3,000-page PDF a question and get the paragraph and the page number, in 25 ms and without network."></a>
+  <a href="https://github.com/yoiberdev/kuidy-lyrics"><img src="assets/cards/oss-kuidy-lyrics.svg" width="49%" alt="Kuidy Lyrics: synced lyrics floating over any Windows window, games included. The Rust version weighs 20 MB instead of 392 MB."></a>
+  <a href="https://github.com/yoiberdev/tsuzuku"><img src="assets/cards/oss-tsuzuku.svg" width="49%" alt="Tsuzuku: anime tracker for the web and Android on the AniList API, with your list episode by episode and when the next one airs."></a>
+  <a href="https://github.com/yoiberdev/km0"><img src="assets/cards/oss-km0.svg" width="49%" alt="km 0: an Android recorder that rebuilds the stretch you walked before hitting start, with a KM 0 plate where you really started."></a>
+</p>
+
+Tsuzuku is live at [anime.yoiber.dev](https://anime.yoiber.dev), with an APK for Android.
 
 ### You can open these
 
-| Demo | What it is |
-|---|---|
-| [Kip-Up Comandas](https://comandas-dev.kipups.com) | Restaurant orders: the waiter takes the order and it shows up on the kitchen screen. Next.js, Prisma and Socket.IO. |
-| [Kip-Up Contenido](https://contenido-dev.kipups.com) | From a TikTok video to a sale in soles. Each video gets its own code, the messages from every ad land in one place, and each month shows what every video sold. NestJS, PostgreSQL and the TikTok API. |
-| [Nazca](https://nazca.yoiber.dev) | A dawn flight over the Nazca lines: the figures are buried under the sand and your cursor's light uncovers them. three.js through Threlte, every shape drawn in code. [Code](https://github.com/yoiberdev/nazca) |
-| [Ajolote](https://ajolote.yoiber.dev) | My pet on the web, a block axolotl in its cave. Click it and it flips and changes color. [Code](https://github.com/yoiberdev/ajolote) |
+<p align="center">
+  <a href="https://comandas-dev.kipups.com"><img src="assets/cards/demo-comandas.svg" width="49%" alt="Kip-Up Comandas: the waiter takes the order and it shows up on the kitchen screen."></a>
+  <a href="https://contenido-dev.kipups.com"><img src="assets/cards/demo-contenido.svg" width="49%" alt="Kip-Up Contenido: from a TikTok video to a sale in soles, with what every video sold, month by month."></a>
+  <a href="https://nazca.yoiber.dev"><img src="assets/cards/demo-nazca.svg" width="49%" alt="Nazca: the hummingbird of the Nazca lines, drawn as a single line that never crosses itself."></a>
+  <a href="https://ajolote.yoiber.dev"><img src="assets/cards/demo-ajolote.svg" width="49%" alt="Ajolote: a block axolotl in its cave, drawn in code."></a>
+</p>
 
-Both Kip-Up demos use the same made-up ceviche restaurant (Contenido talks to TikTok in test mode), and their screens are in Spanish.
+Both Kip-Up demos use the same made-up ceviche restaurant, and their screens are in Spanish. Code for the
+other two: [nazca](https://github.com/yoiberdev/nazca) · [ajolote](https://github.com/yoiberdev/ajolote).
 
 <table>
   <tr>
@@ -58,10 +65,7 @@ Most of my work is in private client repositories. These cards count it, generat
 `Go` · `Rust` · `React` `TypeScript` `Svelte` · `Kotlin` `Capacitor` · `PostgreSQL` `MySQL` ·
 `MQTT` `Modbus` `RTSP` `SRT` · `Docker` `Linux` `Nginx`
 
-### Get in touch
-
-[yoiber.com](https://yoiber.com) · [LinkedIn](https://linkedin.com/in/yoiberdev/) ·
-[contact form](https://yoiber.com/en/contact/). I reply in English or in Spanish.
+I reply in English or in Spanish: [yoiber.com/en/contact](https://yoiber.com/en/contact/).
 
 <p align="center">
   <img src="assets/footer.svg" width="100%" alt="A trajectory leaving the horizon">
