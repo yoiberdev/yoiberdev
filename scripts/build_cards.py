@@ -2,8 +2,8 @@
 """Dibuja la portada y las tarjetas de proyectos del README. Sin dependencias.
 
 A diferencia de build_stats.py, aqui no hay datos que cambien cada noche: cada tarjeta cuenta un
-proyecto con una animacion pequeña de lo que hace (el enlace del barco que se cae y vuelve, la
-boleta que SUNAT acepta, el campo que aparece en el formulario...). Se corre a mano cuando cambia
+proyecto con una animacion pequeña de lo que hace (el técnico que escanea el QR del barco, la
+boleta que SUNAT acepta, el sismo que cae a su profundidad...). Se corre a mano cuando cambia
 un proyecto:
 
     python scripts/build_cards.py
@@ -146,11 +146,11 @@ def portada():
     c.append(texto(px + pw - 16, py + 23, "while nobody is watching", 10, DIM, MONO, extra=' text-anchor="end"'))
     c.append(f'<line x1="{px}" y1="{py + 34}" x2="{px + pw}" y2="{py + 34}" stroke="{LINE}"/>')
     lineas = [
-        ("06:42:10", "vessel", "link lost · frames wait in SQLite", RED),
-        ("06:42:48", "vessel", "link back · queue sent to shore", INK),
-        ("06:43:02", "sunat", "B001-16 accepted · code 0", INK),
-        ("06:43:15", "onboard", "who is on board: answered in 1 s", INK),
-        ("06:44:31", "kuidy", "new field · no migration, no deploy", INK),
+        ("06:42:10", "onboard", "QR scanned on vessel E-03", INK),
+        ("06:42:11", "onboard", "7 h 28 min on board · billed", INK),
+        ("06:43:02", "sunat", "service down · retrying", RED),
+        ("06:43:40", "sunat", "B001-16 accepted · code 0", INK),
+        ("06:44:05", "remezon", "M 4.2 Arequipa · 107 km deep", INK),
         ("06:45:00", "docugraph", "answer + p. 683 in 25 ms", INK),
     ]
     css = []
@@ -175,96 +175,6 @@ def portada():
         ".cursor{animation:late 1s steps(1) infinite}" + "".join(css)
     )
     escribir("hero.svg", svg(W, H, "Yoiber, full-stack developer in Lima, Peru. Systems that keep working when nobody is watching.", "".join(c), estilo, 7))
-
-
-# =============================================================== barcos (ancha)
-def barcos():
-    W, H = 900, 280
-    c = []
-    # Texto a la izquierda.
-    c.append(texto(32, 50, "CASE · ONBOARD SYSTEMS", 10, MID, MONO, extra=' letter-spacing="1.6"'))
-    for i, l in enumerate(["Live video from vessels", "that keep losing the link"]):
-        c.append(texto(32, 84 + i * 28, l, 24, INK, SANS, 700, ' letter-spacing="-0.3"'))
-    for i, l in enumerate(envolver("Cameras on fishing vessels hundreds of kilometers offshore, watched from shore over a satellite link that drops several times a day. Whatever can't be sent waits on board until the link comes back.", 330, 13.5)):
-        c.append(texto(32, 150 + i * 20, l, 13.5, MID))
-    c.append(texto(32, H - 22, "Python · Go · SQLite · RTSP · ONVIF", 10.5, DIM, MONO))
-    c.append(texto(370, H - 22, "read the case →", 11, AMB, MONO, extra=' text-anchor="end"'))
-
-    # El dibujo, a la derecha: barco, satélite y costa.
-    ox = 420
-    c.append(f'<rect x="{ox}" y="20" width="460" height="240" rx="12" fill="#1b1a19" stroke="{LINE}"/>')
-    # mar
-    olas = []
-    for k, (y, op) in enumerate([(206, 0.5), (220, 0.3), (234, 0.18)]):
-        d = "M" + " ".join(f"{ox - 40 + x:.0f},{y + 3 * math.sin(x / 18 + k):.1f}" for x in range(0, 560, 8))
-        olas.append(f'<path class="ola o{k}" d="{d}" fill="none" stroke="{MID}" stroke-width="1.2" opacity="{op}"/>')
-    c.append(f'<g clip-path="url(#dib)">{"".join(olas)}</g>')
-    c.append(f'<defs><clipPath id="dib"><rect x="{ox}" y="20" width="460" height="240" rx="12"/></clipPath></defs>')
-    # costa a la derecha
-    c.append(f'<path d="M{ox + 460},150 L{ox + 400},176 L{ox + 372},196 L{ox + 352},206 L{ox + 460},206 Z" fill="#2c2b29"/>')
-    # antena de tierra y pantalla
-    c.append(f'<line x1="{ox + 404}" y1="174" x2="{ox + 404}" y2="132" stroke="{MID}" stroke-width="2"/>')
-    c.append(f'<path d="M{ox + 388},128 Q{ox + 404},146 {ox + 420},128" fill="none" stroke="{INK}" stroke-width="2"/>')
-    c.append(f'<rect x="{ox + 372}" y="44" width="72" height="46" rx="4" fill="#111" stroke="{MID}"/>')
-    c.append(f'<path class="play" d="M{ox + 402},58 l12,9 l-12,9 z" fill="{AMB}"/>')
-    c.append(texto(ox + 408, 104, "shore", 10, DIM, MONO, extra=' text-anchor="middle"'))
-    # barco con su cámara
-    bx, by = ox + 70, 196
-    c.append(
-        f'<g class="barco"><path d="M{bx - 44},{by} L{bx + 46},{by} L{bx + 34},{by + 14} L{bx - 34},{by + 14} Z" fill="{INK}"/>'
-        f'<rect x="{bx - 22}" y="{by - 18}" width="34" height="18" fill="{MID}"/>'
-        f'<line x1="{bx + 22}" y1="{by}" x2="{bx + 22}" y2="{by - 42}" stroke="{INK}" stroke-width="2"/>'
-        f'<circle cx="{bx + 22}" cy="{by - 46}" r="4.5" fill="{AMB}"/></g>'
-    )
-    # cola en el barco: lo que espera en SQLite
-    for k in range(5):
-        c.append(f'<rect class="q q{k}" x="{bx - 40 + k * 9}" y="{by - 34}" width="6" height="10" rx="1.5" fill="{RED}"/>')
-    c.append(texto(bx - 40, by - 40, "SQLite", 9.5, DIM, MONO))
-    # satélite
-    sx, sy = ox + 236, 62
-    c.append(
-        f'<g class="sat"><rect x="{sx - 9}" y="{sy - 7}" width="18" height="14" rx="2" fill="{INK}"/>'
-        f'<rect x="{sx - 42}" y="{sy - 5}" width="28" height="10" fill="none" stroke="{MID}" stroke-width="1.4"/>'
-        f'<rect x="{sx + 14}" y="{sy - 5}" width="28" height="10" fill="none" stroke="{MID}" stroke-width="1.4"/>'
-        f'<line x1="{sx}" y1="{sy + 7}" x2="{sx}" y2="{sy + 14}" stroke="{INK}" stroke-width="1.5"/></g>'
-    )
-    # enlaces
-    a1 = f"M{bx + 22},{by - 50} L{sx},{sy + 16}"
-    a2 = f"M{sx},{sy + 16} L{ox + 404},126"
-    c.append(f'<path class="flujo f1" d="{a1}" fill="none" stroke="{AMB}" stroke-width="1.8" stroke-dasharray="4 8"/>')
-    c.append(f'<path class="caido" d="{a1}" fill="none" stroke="{RED}" stroke-width="1.8" stroke-dasharray="2 10" opacity="0"/>')
-    c.append(f'<path class="flujo f2" d="{a2}" fill="none" stroke="{AMB}" stroke-width="1.8" stroke-dasharray="4 8"/>')
-    mx, my = (bx + 22 + sx) / 2, (by - 50 + sy + 16) / 2
-    c.append(f'<g class="corte"><circle cx="{mx}" cy="{my}" r="9" fill="#1b1a19" stroke="{RED}" stroke-width="1.5"/>'
-             f'<path d="M{mx - 4},{my - 4} l8,8 M{mx + 4},{my - 4} l-8,8" stroke="{RED}" stroke-width="1.6"/></g>')
-    # estado
-    for clase, t, color in [("e1", "● streaming to shore", AMB), ("e2", "● link lost · queuing on board", RED), ("e3", "● link back · sending the queue", AMB)]:
-        c.append(f'<g class="{clase}">' + texto(ox + 20, 44, t, 11, color, MONO) + "</g>")
-    css = (
-        ".ola{animation:mar 6s linear infinite}.o1{animation-duration:8s}.o2{animation-duration:11s}"
-        "@keyframes mar{to{transform:translateX(-113px)}}"
-        ".barco{animation:mece 3.5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}"
-        "@keyframes mece{50%{transform:rotate(-2.5deg) translateY(2px)}}"
-        ".sat{animation:flota 5s ease-in-out infinite}@keyframes flota{50%{transform:translateY(-4px)}}"
-        ".flujo{animation:corre .9s linear infinite}@keyframes corre{to{stroke-dashoffset:-24}}"
-        ".f1{animation:corre .9s linear infinite,f1 10s infinite}"
-        + fases("f1", [(0, 44), (72, 100)])
-        + ".caido,.corte{animation:caido 10s infinite}"
-        + fases("caido", [(46, 70)])
-        + ".e1{animation:e1 10s infinite}" + fases("e1", [(0, 44)])
-        + ".e2{animation:e2 10s infinite}" + fases("e2", [(46, 70)])
-        + ".e3{animation:e3 10s infinite}" + fases("e3", [(72, 96)])
-        + ".play{animation:play 10s infinite}@keyframes play{46%{opacity:1}48%,70%{opacity:.25}72%{opacity:1}}"
-    )
-    # la cola crece mientras no hay enlace y se vacía cuando vuelve
-    for k in range(5):
-        ent = 48 + k * 4
-        sal = 74 + (4 - k) * 3
-        css += f".q{k}{{animation:q{k} 10s infinite}}@keyframes q{k}{{0%,{ent - 1}%{{opacity:0}}{ent}%,{sal}%{{opacity:1}}{sal + 1}%,100%{{opacity:0}}}}"
-    escribir(
-        "case-vessels.svg",
-        svg(W, H, "Case: live video from vessels that keep losing the link. Cameras on fishing vessels, watched from shore over a satellite link that drops several times a day.", "".join(c), css, 11),
-    )
 
 
 # =============================================================== SUNAT
@@ -302,38 +212,81 @@ def sunat():
             tags="UBL 2.1 · digital signature · SOAP", semilla=21)
 
 
-# =============================================================== a bordo
+# =============================================================== a bordo (ancha)
+QR = [
+    "1111111001011",
+    "1000001010001",
+    "1011101011101",
+    "1011101000111",
+    "1000001010001",
+    "1111111010101",
+    "0000000011100",
+    "1101011101011",
+    "0010100100110",
+    "1111111010011",
+    "1000001001101",
+    "1011101110100",
+    "1111111011011",
+]
+
+
+def qr(x, y, tam, color=INK):
+    return "".join(f'<rect x="{x + k * tam}" y="{y + f * tam}" width="{tam}" height="{tam}" fill="{color}"/>'
+                   for f, fila in enumerate(QR) for k, ch in enumerate(fila) if ch == "1")
+
+
 def a_bordo():
+    W, H = 900, 280
     c = []
-    # costa
-    c.append(f'<path d="M0,0 L120,0 C104,30 112,58 92,84 C78,104 84,128 70,150 L0,150 Z" fill="#2c2b29"/>')
-    for k in range(9):
-        c.append(f'<line x1="{6 + k * 10}" y1="{20 + k * 14}" x2="{20 + k * 10}" y2="{6 + k * 14}" stroke="{LINE}"/>')
-    # rejilla de carta
-    for x in range(140, 440, 60):
-        c.append(f'<line x1="{x}" y1="0" x2="{x}" y2="150" stroke="{LINE}" stroke-dasharray="2 6"/>')
-    barcos = [(196, 52, "V-02", 2), (300, 104, "V-05", 1), (372, 44, "V-07", 0)]
-    for k, (x, y, nombre, gente) in enumerate(barcos):
-        c.append(f'<path d="M{x - 14},{y} L{x + 14},{y} L{x + 9},{y + 7} L{x - 9},{y + 7} Z" fill="{INK if gente else DIM}"/>')
-        c.append(f'<rect x="{x - 6}" y="{y - 7}" width="9" height="7" fill="{MID if gente else LINE}"/>')
-        c.append(texto(x, y + 22, nombre, 9.5, MID if gente else DIM, MONO, extra=' text-anchor="middle"'))
-        for g in range(gente):
-            gx = x - 4 + g * 9
-            c.append(f'<circle class="pulso p{k}{g}" cx="{gx}" cy="{y - 14}" r="7" fill="none" stroke="{AMB}" stroke-width="1.2"/>')
-            c.append(f'<circle cx="{gx}" cy="{y - 14}" r="3" fill="{AMB}"/>')
-    # panel
-    c.append(f'<rect x="324" y="96" width="104" height="44" rx="6" fill="#1b1a19" stroke="{LINE}"/>')
-    c.append(texto(334, 113, "ON BOARD NOW", 8.5, MID, MONO, extra=' letter-spacing="1"'))
-    c.append(texto(334, 133, "3", 18, AMB, MONO, 700))
-    c.append(texto(352, 132, "technicians", 9.5, MID, MONO))
+    c.append(texto(32, 50, "CASE · FIELD OPERATIONS", 10, MID, MONO, extra=' letter-spacing="1.6"'))
+    for i, l in enumerate(["Man-hours per technician,", "on every vessel"]):
+        c.append(texto(32, 84 + i * 28, l, 24, INK, SANS, 700, ' letter-spacing="-0.3"'))
+    for i, l in enumerate(envolver("A service company sends technicians to its clients' vessels and bills by the man-hour. Every vessel carries a QR code: they scan it when they board and when they leave, and the hours add up on their own.", 330, 13.5)):
+        c.append(texto(32, 150 + i * 20, l, 13.5, MID))
+    c.append(texto(32, H - 22, "React Native · Node · Prisma · MySQL", 10.5, DIM, MONO))
+    c.append(texto(370, H - 22, "read the case →", 11, AMB, MONO, extra=' text-anchor="end"'))
+
+    ox = 420
+    c.append(f'<rect x="{ox}" y="20" width="460" height="240" rx="12" fill="#1b1a19" stroke="{LINE}"/>')
+    # el barco con su QR pegado
+    c.append(f'<path d="M{ox + 30},176 L{ox + 230},176 L{ox + 206},212 L{ox + 54},212 Z" fill="#2c2b29" stroke="{MID}" stroke-width="1.2"/>')
+    c.append(f'<rect x="{ox + 92}" y="128" width="84" height="48" fill="#262523" stroke="{MID}" stroke-width="1.2"/>')
+    c.append(f'<line x1="{ox + 134}" y1="128" x2="{ox + 134}" y2="96" stroke="{MID}" stroke-width="1.5"/>')
+    c.append(f'<rect x="{ox + 106}" y="136" width="34" height="34" rx="2" fill="{INK}"/>')
+    c.append(qr(ox + 108.5, 138.5, 2.25, "#1f1e1d"))
+    c.append(texto(ox + 158, 166, "E-03", 10, MID, MONO))
+    for k, (y, op) in enumerate([(220, 0.5), (232, 0.3), (244, 0.18)]):
+        d = "M" + " ".join(f"{ox + x:.0f},{y + 2.5 * math.sin(x / 16 + k):.1f}" for x in range(0, 461, 8))
+        c.append(f'<path d="{d}" fill="none" stroke="{MID}" stroke-width="1.1" opacity="{op}"/>')
+    # el teléfono que escanea
+    c.append(f'<g class="tel"><rect x="{ox + 196}" y="58" width="40" height="70" rx="7" fill="#111" stroke="{INK}" stroke-width="1.5"/>'
+             f'<rect class="haz" x="{ox + 202}" y="70" width="28" height="2" fill="{AMB}"/></g>')
+    c.append(f'<g class="marca"><circle cx="{ox + 216}" cy="44" r="9" fill="{AMB}"/>'
+             f'<path d="M{ox + 211},44 l3.5,3.5 l6,-7" fill="none" stroke="#1f1e1d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>')
+    # las marcas y las horas que salen solas
+    c.append(f'<rect x="{ox + 262}" y="40" width="182" height="188" rx="8" fill="#1f1e1d" stroke="{LINE}"/>')
+    c.append(texto(ox + 276, 62, "R. QUISPE · E-03", 9.5, MID, MONO, extra=' letter-spacing="1"'))
+    filas = [("boarded", "06:42", "f0"), ("left", "14:10", "f1")]
+    for k, (que, hora, clase) in enumerate(filas):
+        y = 90 + k * 26
+        c.append(f'<g class="{clase}">' + texto(ox + 276, y, que, 11, MID, MONO) + texto(ox + 430, y, hora, 11, INK, MONO, extra=' text-anchor="end"') + "</g>")
+    c.append(f'<line x1="{ox + 276}" y1="132" x2="{ox + 430}" y2="132" stroke="{LINE}"/>')
+    c.append('<g class="f2">' + texto(ox + 276, 158, "on board", 11, MID, MONO) + texto(ox + 430, 158, "7 h 28 min", 13, AMB, MONO, 700, ' text-anchor="end"') + "</g>")
+    c.append('<g class="f3">' + texto(ox + 276, 190, "this week", 10, DIM, MONO) + texto(ox + 430, 190, "41 HH", 11, INK, MONO, extra=' text-anchor="end"') + "</g>")
+    c.append('<g class="f3">' + texto(ox + 276, 210, "billed to client", 10, DIM, MONO) + texto(ox + 430, 210, "E-03", 11, INK, MONO, extra=' text-anchor="end"') + "</g>")
     css = (
-        ".pulso{animation:pulso 2.4s ease-out infinite;transform-box:fill-box;transform-origin:center}"
-        "@keyframes pulso{0%{transform:scale(.4);opacity:1}100%{transform:scale(2.2);opacity:0}}"
-        ".p01{animation-delay:.6s}.p10{animation-delay:1.2s}"
+        ".tel{animation:tel 8s infinite}@keyframes tel{0%{transform:translateY(-14px);opacity:0}8%{opacity:1}18%,80%{transform:translateY(0);opacity:1}90%,100%{opacity:0}}"
+        ".haz{animation:haz 1s ease-in-out infinite alternate}@keyframes haz{to{transform:translateY(48px)}}"
+        ".marca{animation:marca 8s infinite}" + fases("marca", [(22, 34), (52, 64)])
+        + ".f0{animation:f0 8s infinite}" + fases("f0", [(24, 92)])
+        + ".f1{animation:f1 8s infinite}" + fases("f1", [(54, 92)])
+        + ".f2{animation:f2 8s infinite}" + fases("f2", [(62, 92)])
+        + ".f3{animation:f3 8s infinite}" + fases("f3", [(70, 92)])
     )
-    tarjeta("case-onboard.svg", "Case: who is on board right now. Technicians clock in on vessels with their location; the office sees who is on board, where and since when.",
-            "CASE · FIELD OPERATIONS", "Who is on board right now", "".join(c), css,
-            tags="Node · Prisma · MySQL · React · Leaflet", semilla=31)
+    escribir(
+        "case-onboard.svg",
+        svg(W, H, "Case: man-hours per technician on every vessel. Each vessel carries a QR code that technicians scan when they board and leave; their hours add up on their own, for billing the client and paying the crew.", "".join(c), css, 31),
+    )
 
 
 # =============================================================== agenda
@@ -372,36 +325,6 @@ def agenda():
     tarjeta("case-schedule.svg", "Case: twenty modules around the day's schedule, the system a therapy center with several locations runs on every day.",
             "CASE · CUSTOM SYSTEM", "Twenty modules around the day's schedule", "".join(c), css,
             tags="Django · ASGI · Redis · PostgreSQL", semilla=41)
-
-
-# =============================================================== KUIDY-CORE
-def kuidy_core():
-    c = []
-    c.append(f'<rect x="24" y="20" width="186" height="114" rx="8" fill="#1b1a19" stroke="{LINE}"/>')
-    c.append(texto(36, 38, "DEFINITION", 9, MID, MONO, extra=' letter-spacing="1.4"'))
-    filas = [("name", "text", "✓"), ("bought", "date", ""), ("price", "number", "✓")]
-    for i, (n, t, r) in enumerate(filas):
-        y = 58 + i * 18
-        c.append(texto(36, y, n, 10, INK, MONO) + texto(110, y, t, 10, MID, MONO) + texto(186, y, r, 10, AMB, MONO))
-    c.append('<g class="nueva">' + texto(36, 112, "serial", 10, AMB, MONO) + texto(110, 112, "text", 10, AMB, MONO) + texto(186, 112, "✓", 10, AMB, MONO) + "</g>")
-    c.append(f'<rect class="tapa" x="30" y="100" width="172" height="16" fill="#1b1a19"/>')
-    c.append(f'<path d="M218,77 h20" stroke="{DIM}" stroke-width="1.5"/><path d="M234,72 l6,5 l-6,5" fill="none" stroke="{DIM}" stroke-width="1.5"/>')
-    c.append(f'<rect x="248" y="20" width="168" height="114" rx="8" fill="#1b1a19" stroke="{LINE}"/>')
-    c.append(texto(260, 38, "FORM", 9, MID, MONO, extra=' letter-spacing="1.4"'))
-    for i, n in enumerate(["Name", "Bought", "Price"]):
-        y = 48 + i * 20
-        c.append(texto(260, y + 11, n, 9.5, MID) + f'<rect x="306" y="{y}" width="98" height="15" rx="3" fill="none" stroke="{LINE}"/>')
-    c.append('<g class="campo">' + texto(260, 119, "Serial", 9.5, AMB) + f'<rect x="306" y="108" width="98" height="15" rx="3" fill="none" stroke="{AMB}"/>'
-             f'<rect class="caret" x="311" y="111" width="1.5" height="9" fill="{AMB}"/></g>')
-    css = (
-        ".tapa{animation:escribe 8s steps(14) infinite;transform-box:fill-box;transform-origin:100% 50%}"
-        "@keyframes escribe{0%,8%{transform:scaleX(1)}30%,92%{transform:scaleX(0)}100%{transform:scaleX(1)}}"
-        ".campo{animation:campo 8s infinite}" + fases("campo", [(36, 92)])
-        + ".caret{animation:late 1s steps(1) infinite}@keyframes late{50%{opacity:0}}"
-    )
-    tarjeta("case-kuidy-core.svg", "Case: KUIDY-CORE. A field is declared in the definition and the form already has it, with its validation.",
-            "CASE · MY OWN PRODUCT", "You define a field and the form is already there", "".join(c), css,
-            tags="PostgreSQL jsonb · runtime validation", semilla=51)
 
 
 # =============================================================== DocuGraph
@@ -457,6 +380,61 @@ def kuidy_lyrics():
             "OPEN SOURCE · RUST · WINDOWS", "Kuidy Lyrics", "".join(c), css,
             desc="Synced lyrics floating over any window, games in borderless fullscreen included.",
             tags="one process instead of five", accion="code →", h=286, semilla=71)
+
+
+# =============================================================== Remezón
+def remezon():
+    c = [f'<rect width="440" height="150" fill="#f5f5f1"/>']
+    # el perfil del relieve y el mar, como en la vista de corte
+    c.append(f'<path d="M0,30 L150,30 L170,26 L200,14 L230,10 L262,16 L300,22 L440,26 L440,0 L0,0 Z" fill="#f5f5f1"/>')
+    c.append(f'<path d="M0,30 L150,30 L150,34 L0,34 Z" fill="#b8d3e5"/>')
+    c.append(f'<path d="M150,30 L170,26 L200,14 L230,10 L262,16 L300,22 L440,26" fill="none" stroke="#1b1d1f" stroke-width="1.4"/>')
+    for k, y in enumerate([54, 78, 102, 126]):
+        c.append(f'<line x1="0" y1="{y}" x2="440" y2="{y}" stroke="#1b1d1f" stroke-opacity="0.12"/>')
+        c.append(f'<text x="432" y="{y - 3}" font-family="Georgia, serif" font-style="italic" font-size="8" fill="#646a71" text-anchor="end">{(k + 1) * 100} km</text>')
+    r = random.Random(7)
+    puntos = []
+    for _ in range(46):
+        x = r.uniform(120, 300)
+        prof = max(4, (x - 120) * 0.62 + r.gauss(0, 6))
+        puntos.append((x, 30 + prof * 0.24))
+    for _ in range(9):
+        puntos.append((r.uniform(330, 380), r.uniform(120, 140)))
+    for k, (x, y) in enumerate(puntos):
+        prof = (y - 30) / 0.24
+        color = "#d7301f" if prof < 60 else "#1a9850" if prof < 300 else "#2166ac"
+        c.append(f'<circle class="s" style="animation-delay:{k * 0.08:.2f}s" cx="{x:.0f}" cy="{y:.0f}" r="{r.uniform(1.6, 3.4):.1f}" fill="{color}" stroke="#1b1d1f" stroke-width="0.4"/>')
+    c.append(texto(16, 62, "REMEZÓN", 13, "#1b1d1f", SANS, 800, ' letter-spacing="2.4"'))
+    c.append(f'<text x="16" y="78" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#3d4247">the Nazca plate, drawn by its earthquakes</text>')
+    css = ".s{animation:s 7s infinite both}@keyframes s{0%{opacity:0;transform:scale(.2)}6%,88%{opacity:1;transform:none}96%,100%{opacity:0}}.s{transform-box:fill-box;transform-origin:center}"
+    tarjeta("oss-remezon.svg", "Remezón: Peru's earthquakes live and in 3D, each one at the depth where it started; seen from the side they draw the Nazca plate.",
+            "OPEN SOURCE · LIVE DATA", "Remezón", "".join(c), css,
+            desc="Peru's earthquakes live and in 3D, each one at the depth where it started.",
+            tags="Nuxt · Vue · TresJS", accion="code →", h=286, semilla=141)
+
+
+# =============================================================== Daebon
+def daebon():
+    c = []
+    # el libreto engrapado, con el resaltador y el sello
+    c.append(f'<rect x="150" y="16" width="140" height="122" rx="4" fill="#f4c6d3" transform="rotate(-4 220 77)"/>')
+    c.append(f'<g transform="rotate(-4 220 77)"><rect x="150" y="16" width="12" height="122" fill="#1f1e1d" opacity="0.85"/>'
+             f'<rect x="153" y="30" width="6" height="6" fill="{MID}"/><rect x="153" y="118" width="6" height="6" fill="{MID}"/>'
+             + texto(172, 38, "S#1. My list (night)", 8.5, "#b5334f", MONO)
+             + texto(172, 78, "대본", 30, "#1f1e1d", SANS, 800)
+             + f'<rect class="resalta" x="172" y="92" width="96" height="9" fill="#ffe45a" opacity="0.9"/>'
+             + texto(172, 100, "ep. 7 airs tonight", 9, "#1f1e1d", MONO)
+             + f'<g class="sello"><rect x="246" y="108" width="28" height="22" rx="3" fill="none" stroke="#c0392b" stroke-width="2"/>'
+             + texto(260, 124, "끝", 13, "#c0392b", SANS, 800, ' text-anchor="middle"') + "</g></g>")
+    css = (
+        ".resalta{animation:resalta 6s infinite both;transform-box:fill-box;transform-origin:0 50%}"
+        "@keyframes resalta{0%{transform:scaleX(0)}20%,88%{transform:scaleX(1)}96%,100%{transform:scaleX(0)}}"
+        ".sello{animation:sello 6s infinite}" + fases("sello", [(40, 92)])
+    )
+    tarjeta("oss-daebon.svg", "Daebon: an Asian drama tracker styled as a Korean script, for the web and Android, with where to watch each show legally.",
+            "OPEN SOURCE · WEB AND ANDROID", "Daebon", "".join(c), css,
+            desc="My drama list, styled as a Korean script: the episodes I'm missing and where to watch them.",
+            tags="Svelte · Capacitor · Node · TMDB", accion="code →", h=286, semilla=151)
 
 
 # =============================================================== Tsuzuku
@@ -628,13 +606,13 @@ def ajolote():
 
 if __name__ == "__main__":
     portada()
-    barcos()
     sunat()
     a_bordo()
     agenda()
-    kuidy_core()
     docugraph()
     kuidy_lyrics()
+    remezon()
+    daebon()
     tsuzuku()
     km0()
     comandas()
